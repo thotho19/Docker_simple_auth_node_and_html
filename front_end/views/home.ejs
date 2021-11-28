@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./home.css">
+    <title>QI - Login</title>
+</head>
+
+<body>
+    <div id="error" class="error">
+        
+    </div>
+    <div id="container" class="container">
+        
+        <div id="spa" class="login_container">
+            <label>UserName</label> <br>
+            <input id="user" type="text" name="user" placeholder="Enter your user name"> <br>
+            <label>Password</label> <br>
+            <input id="password" type="password" name="Password" placeholder="Enter your password"> <br>
+            <button type="button" onclick="login();">Login</button>
+        </div>
+    </div>
+    
+    <script>
+        let errorDom = document.getElementById("error");
+        const spa = document.getElementById("spa"),
+            container = document.getElementById("container");
+        const login = ()=>{
+            let userInput = document.getElementById("user"),
+                passwordInput = document.getElementById("password");
+
+            const loginData = {
+                user: userInput.value,
+                password: passwordInput.value
+            }
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            }
+            fetch('http://127.0.0.1:443/login', options)
+            .then(async res =>{
+                var jsonObject = await res.json();
+                if(res.status === 401){
+                    errorDom.innerText = jsonObject.message;
+                }else{
+                  errorDom.innerHTML = jsonObject.message;  
+                  spa.style.display = "none";
+                  container.style.background = "#ffc311 url(http://127.0.0.1:300/qi.png)"
+                  container.style.backgroundSize = "cover";
+                }
+            })
+            .catch();
+        }
+    </script>
+</body>
+
+</html>
