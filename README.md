@@ -3,7 +3,7 @@ simple auth project using node + html
 
 # Project Documentation
 
-## Back-End
+## Back-End Nodejs
 
 - <details><summary>login :white_check_mark: </summary>
 
@@ -17,7 +17,7 @@ simple auth project using node + html
   ```
   
 
-## Front-End
+## Front-End Nodejs + EJS 
 
 - <details><summary>Home :white_check_mark: </summary>
 
