@@ -24,3 +24,18 @@ simple auth project using node + html
    Request `http://127.0.0.1:300/home` `GET`
 
   `Home page will Return to the visitor`
+
+  
+  # Docker usefull CMDs
+**docker build -t image_auth_front_app:v1.0.0 .**
+  - build: convert Dockerfile -> docker image
+  - -t: set a name tag to to the image
+  
+**docker run -t -i -p 300:300 image_auth_front_app:v1.0.0**
+  - -t:  Allocate a pseudo-TTY
+  - -i: Keep STDIN open even if not attached 
+  - -p: Publish a container's port(s) to the host
+  
+ **How to see docker flags ?** <br>
+answer: ` docker run --help ` this will show all run flags <br>
+answer: ` docker build --help ` this will show all build flags <br>
